@@ -1,0 +1,28 @@
+{
+  "name": "mocha-email-reporter",
+  "version": "1.0.0",
+  "description": "Mocha Email Reporter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petridw/mocha-email-reporter.git"
+  },
+  "keywords": [
+    "mocha",
+    "reporter"
+  ],
+  "author": "David Petri <petridw@gmail.com> (davidpetri.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petridw/mocha-email-reporter/issues"
+  },
+  "homepage": "https://github.com/petridw/mocha-email-reporter#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "expect": "^1.13.4",
+    "mocha": "^2.4.1"
+  }
+}
