@@ -1,12 +1,8 @@
 # mocha-email-reporter
 
----
-
 ## Intro
 
 Mocha reporter which prints an email-friendly HTML string to stdout.
-
----
 
 ## Usage
 
@@ -26,8 +22,6 @@ mocha.reporter(EmailReporter).run();
 // or:
 mocha.reporter(EmailReporter, { json: './path/to/outputFile.json' }).run();
 ```
-
----
 
 ## Options
 
