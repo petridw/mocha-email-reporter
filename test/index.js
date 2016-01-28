@@ -8,25 +8,21 @@ const jsonFilePath = `${__dirname}/output.json`;
 
 describe('Email reporter', () => {
   var unhook;
-  var output = '';
+  var output;
   var mocha;
   
   before(() => {
     unhook = hookStdOut((string, encoding, fd) => {
       output += string;
     });
+        
+    try { fs.unlinkSync(jsonFilePath); } catch (e) {  }
     
     mocha = new Mocha({
       timeout: 5000
     });
 
-    mocha.addFile(`${__dirname}/mockTest.js`);
-    
-    try {
-      fs.unlinkSync(jsonFilePath);      
-    } catch (err) {
-      console.log('file did not exist');
-    }
+    mocha.addFile(`${__dirname}/mock/mockTest.js`);
   });
   
   after(() => {
@@ -40,17 +36,20 @@ describe('Email reporter', () => {
   });
   
   beforeEach(() => {
-    ouput = '';
+    output = '';
   });
   
   afterEach(() => {
+    mocha = undefined;
   });
   
   // it('generates a string', (done) => {
   //   
   //   mocha.reporter(EmailReporter).run((failures) => {
-  //     expect(failures).toEqual(1);
+  //     // expect(failures).toEqual(1);
+  //     console.log(failures);
   //     expect(output).toBeA('string');
+  //     // expect(output.length).toBeGreaterThan(1);
   //     
   //     done();
   //   });
@@ -61,6 +60,7 @@ describe('Email reporter', () => {
     mocha.reporter(EmailReporter, { json: jsonFilePath }).run((failures) => {
       expect(failures).toEqual(1);
       expect(output).toBeA('string');
+      expect(output.length).toBeGreaterThan(1);
       
       fs.stat(jsonFilePath, (err, stat) => {
         expect(err).toNotExist();
