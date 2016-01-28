@@ -25,15 +25,15 @@ mocha.reporter(EmailReporter, { json: './path/to/outputFile.json' }).run();
 
 ## Example output
 ```
-"<h2>Balanced Parens Test</h2>
-
-      <dt style="color: green;">✔ should return true when parens are balanced<span style="font-size: 12px;"> 6 ms </span></dt>
-
-      <dt style="color: green;">✔ should return false when parents are not balanced<span style="font-size: 12px;"> 1 ms </span></dt>
-
-      <dt style="color: green;">✔ should work with multiple types of brackets<span style="font-size: 12px;"> 1 ms </span></dt>
-
-      <dt style="color: green;">✔ should work when extra character are added<span style="font-size: 12px;"> 1 ms </span></dt>"
+"
+<html>
+  <h2>Balanced Parens Test</h2>
+  <dt style="color: green;">✔ should return true when parens are balanced<span style="font-size: 12px;"> 6 ms </span></dt>
+  <dt style="color: green;">✔ should return false when parents are not balanced<span style="font-size: 12px;"> 1 ms </span></dt>
+  <dt style="color: green;">✔ should work with multiple types of brackets<span style="font-size: 12px;"> 1 ms </span></dt>
+  <dt style="color: green;">✔ should work when extra character are added<span style="font-size: 12px;"> 1 ms </span></dt>
+</html>
+"
 ```
 
 ![example email](img/example.png)
