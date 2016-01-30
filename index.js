@@ -26,27 +26,33 @@ function EmailReporter(runner, options) {
     var title = suite.title;
     if (!title) return;
     
-    self.result.suites[title] = {};
+    self.result.suites[title] = {
+      file: suite.file,
+      tests: {}
+    };
   });
   
   runner.on('test', (test) => {
-    self.result.suites[test.parent.title][test.title] = {};
-    self.result.suites[test.parent.title][test.title].start = Date.now();
+    self.result.suites[test.parent.title].tests[test.title] = {
+      start: Date.now()
+    };
+    // self.result.suites[test.parent.title][tests][test.title].start = Date.now();
+    // self.result.suites[test.parent.title][test.title].file = test.file;
   });
   
   runner.on('test end', (test) => {
-    var start = self.result.suites[test.parent.title][test.title].start;
-    self.result.suites[test.parent.title][test.title].duration = Date.now() - start;
-    if (test.err) self.result.suites[test.parent.title][test.title].err = test.err;
+    var start = self.result.suites[test.parent.title].tests[test.title].start;
+    self.result.suites[test.parent.title].tests[test.title].duration = Date.now() - start;
+    if (test.err) self.result.suites[test.parent.title].tests[test.title].err = test.err;
   });
   
   runner.on('pass', (test) => {
-    self.result.suites[test.parent.title][test.title].pass = true;
+    self.result.suites[test.parent.title].tests[test.title].pass = true;
     self.result.totalPasses += 1;
   });
 
   runner.on('fail', (test, err) => {
-    self.result.suites[test.parent.title][test.title].pass = false;
+    self.result.suites[test.parent.title].tests[test.title].pass = false;
     self.result.totalFailures += 1;
   });
 
