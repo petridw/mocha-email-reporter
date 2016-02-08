@@ -1,5 +1,9 @@
 # mocha-email-reporter
 
+[![npm version](https://badge.fury.io/js/mocha-email-reporter.svg)](https://badge.fury.io/js/mocha-email-reporter)
+[![GitHub issues](https://img.shields.io/github/issues/petridw/mocha-email-reporter.svg)](https://github.com/petridw/mocha-email-reporter/issues)
+
+
 [![NPM](https://nodei.co/npm/mocha-email-reporter.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mocha-email-reporter/)
 
 ## Intro
