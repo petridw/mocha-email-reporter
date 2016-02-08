@@ -1,5 +1,7 @@
 # mocha-email-reporter
 
+[![NPM](https://nodei.co/npm/mocha-email-reporter.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mocha-email-reporter/)
+
 ## Intro
 
 Mocha reporter which prints an email-friendly HTML string to stdout.
@@ -42,7 +44,7 @@ mocha.reporter(EmailReporter, { json: './path/to/outputFile.json' }).run();
 
 ### json
 - (string) - Write a .json file to provided filepath in addition to printing the results to stdout
-- The json file will look like this: 
+- The json file will look like this:
 ```
 {
   "suites": {
