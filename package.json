@@ -1,6 +1,6 @@
 {
   "name": "mocha-email-reporter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mocha Email Reporter",
   "main": "index.js",
   "scripts": {
