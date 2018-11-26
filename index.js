@@ -66,12 +66,20 @@ function EmailReporter(runner, options) {
 
   runner.on('end', () => {
     if (self.reporterOptions.json) fs.writeFileSync(self.reporterOptions.json, JSON.stringify(self.result, null, 2));
-
-    process.stdout.write(emailTemplate({
-      results: self.result,
-      headerContent: self.reporterOptions.header || '',
-      footerContent: self.reporterOptions.footer || ''
-    }));
+    if (self.reporterOptions.output) {
+		fs.writeFileSync(self.reporterOptions.output, emailTemplate({
+			  results: self.result,
+			  headerContent: self.reporterOptions.header || '',
+			  footerContent: self.reporterOptions.footer || ''
+		  }));
+	  }
+	  else{ 
+		  process.stdout.write(emailTemplate({
+		    results: self.result,
+		    headerContent: self.reporterOptions.header || '',
+		    footerContent: self.reporterOptions.footer || ''
+		}));
+	}
   });
 }
 
